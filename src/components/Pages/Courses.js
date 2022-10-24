@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import CatagoryList from './CatagoryList';
+import Module from './Module';
 const Courses = () => {
+  const modules=useLoaderData();
   const [catagories,setCatagories]=useState([]);
   useEffect(()=>{
     fetch('http://localhost:5000/catagories')
@@ -18,8 +21,16 @@ const Courses = () => {
       </div>
      
       </div>
-    
-    <div className="border border-sky-500">09</div>
+    <div>
+      <h2>All Modules</h2>
+    <div className='grid md:grid-cols-2 gap-2 mt-2'>
+
+{
+  modules.map(module=><Module key={module.id} module={module}></Module>)
+}
+    </div>
+    </div>
+ 
   </div>
   );
 };
