@@ -16,7 +16,7 @@ const Courses = () => {
      <h1 className='mb-1'>Catagorys: {catagories.length}</h1>
       <div>
       {
-        catagories.map(ca=><CatagoryList key={ca.id} name={ca.name}></CatagoryList>)
+        catagories.map(ca=><CatagoryList key={ca.id} name={ca.name} id={ca.id}></CatagoryList>)
       }
       </div>
      

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Module = ({module}) => {
   const {id,title,card,photo,review}=module;
-  console.log(module);
+  // console.log(module);
   return (
     <div>
       <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100">
