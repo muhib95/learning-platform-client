@@ -8,6 +8,7 @@ import Error from '../Pages/Error';
 import Faq from '../Pages/Faq';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
+import ModuleDetails from '../Pages/ModuleDetails';
 import Register from '../Pages/Register';
 
 export const router=createBrowserRouter([
@@ -29,6 +30,12 @@ export const router=createBrowserRouter([
         path:'/catagories/:id',
         element:<CatagoryDetails></CatagoryDetails>,
         loader:({params})=>fetch(`http://localhost:5000/catagories/${params.id}`)
+      },
+      {
+        path:'/module/:id',
+        element:<ModuleDetails></ModuleDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/modules/${params.id}`)
+
       },
       {
         path:'/faq',
