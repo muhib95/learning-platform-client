@@ -6,12 +6,12 @@ const Module = ({module}) => {
   
   return (
     <div>
-      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100">
+      <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100" style={{height:'650px'}}>
 	
 	<div>
 		<img src={photo} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 bg-gray-500" />
 		<h2 className="mb-1 text-xl font-semibold">{title}</h2>
-		<p className="text-sm text-gray-400">{card}</p>
+		<p className="text-sm text-gray-400">{card.slice(0,150)}</p>
 	</div>
 	<div className="flex flex-wrap justify-between">
 		<div className="space-x-2">
