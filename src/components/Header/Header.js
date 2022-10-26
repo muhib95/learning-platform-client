@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
+import { FaUserAlt } from 'react-icons/fa';
+import logo from '../../weblogo.jpg'
 const Header = () => {
   const {user,logOut}=useContext(UserContext);
   const handleLogOut=()=>{
@@ -14,8 +16,9 @@ const Header = () => {
   console.log(user);
   return (
     <div className='bg-red-200'>
-      <nav className="flex justify-center space-x-4">
-  <Link to="/" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Tutor Expart</Link>
+      <nav className="flex flex-col md:flex md:flex-row justify-center space-x-4">
+        <img className='h-20' src={logo} alt="" />
+  <Link to="/" className="text-4xl font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Tutor Expart</Link>
   <Link to="/" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</Link>
   <Link to="/courses" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Courses</Link>
   <Link to="/faq" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">FAQ</Link>
@@ -44,9 +47,9 @@ const Header = () => {
    
     {
       user?.photoURL?
-      <img className='w-9 rounded-full' src={user?.photoURL} alt="" title={user?.displayName} />
+      <img className='w-16 h-16 rounded-full' src={user?.photoURL} alt="" title={user?.displayName} />
       :
-      <p>None</p>
+      <FaUserAlt className='mt-3'/>
     }
   
   
