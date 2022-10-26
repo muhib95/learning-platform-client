@@ -1,8 +1,12 @@
 import { GoogleAuthProvider,GithubAuthProvider } from 'firebase/auth';
+import {  useLocation, useNavigate } from "react-router-dom";
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 const Login = () => {
+	const navigate = useNavigate();
+  let location = useLocation();
+	let from = location.state?.from?.pathname || "/";
 	const provider=new GoogleAuthProvider();
 	const gitProvider=new GithubAuthProvider();
 	const [error,setError]=useState('');
@@ -17,6 +21,7 @@ const Login = () => {
 		.then((result) => {
 			form.reset();
 			setError('Successful Login');
+			navigate(from, { replace: true });
 		})
 		.catch((error) => {
 			form.reset();

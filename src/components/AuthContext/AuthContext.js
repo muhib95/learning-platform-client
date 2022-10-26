@@ -4,17 +4,20 @@ import app from '../Firebase/firebase.init';
 export const UserContext=createContext();
 const auth=getAuth(app);
 const AuthContext = ({children}) => {
-const [user,setUser]=useState([]);
+const [user,setUser]=useState(null);
+const [loader,setLoader]=useState(true);
 const googleLogIn=(provider)=>{
   return signInWithPopup(auth,provider);
 }
 const logIn=(email, password)=>{
+  setLoader(true);
   return signInWithEmailAndPassword(auth,email,password);
 
 }
 useEffect(()=>{
   const unSubscribe=onAuthStateChanged(auth,(currentUser)=>{
     setUser(currentUser);
+    setLoader(false);
   });
   return ()=>unSubscribe();
 
@@ -38,7 +41,7 @@ const gitHubLogin=(provider)=>{
 
 
  
-const info={user,googleLogIn,gitHubLogin,logIn,logOut,register,userUpdate};
+const info={user,googleLogIn,gitHubLogin,logIn,logOut,register,userUpdate,loader};
 
   return (
 <UserContext.Provider value={info}>

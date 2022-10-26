@@ -11,6 +11,7 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import ModuleDetails from '../Pages/ModuleDetails';
 import Register from '../Pages/Register';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const router=createBrowserRouter([
   {
@@ -40,13 +41,13 @@ export const router=createBrowserRouter([
       },
       {
         path:'/checkout/:id',
-        element:<CheckOut></CheckOut>,
+        element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`)
 
       },
       {
         path:'/checkout1/:id',
-        element:<CheckOut></CheckOut>,
+        element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/checkout1/${params.id}`)
 
       },
