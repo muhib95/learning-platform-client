@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../AuthContext/AuthContext';
 const Header = () => {
+  const {user}=useContext(UserContext);
+  console.log(user);
   return (
     <div className='bg-red-200'>
       <nav className="flex justify-center space-x-4">
