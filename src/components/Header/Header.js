@@ -1,10 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 import { FaUserAlt } from 'react-icons/fa';
 import logo from '../../weblogo.jpg'
 const Header = () => {
+  const [value,setValue]=useState(false);
   const {user,logOut}=useContext(UserContext);
+  const handleChange=(e)=>{
+const v=e.target.checked;
+setValue(v);
+  }
   const handleLogOut=()=>{
     logOut()
     .then(() => {
@@ -24,13 +29,19 @@ const Header = () => {
   <Link to="/faq" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">FAQ</Link>
   <Link to="/blogs" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Blogs</Link>
   <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer text-gray-100">
-	<span>Light</span>
+    {
+      !value && <span className='text-black'>Light</span>
+    }
+	
 	<span className="relative">
-		<input id="Toggle1" type="checkbox" className="hidden peer" />
+		<input onChange={handleChange} id="Toggle1" type="checkbox" className="hidden peer" value={'m'}/>
 		<div className="w-10 h-6 rounded-full shadow-inner bg-gray-400 peer-checked:bg-violet-400"></div>
 		<div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-800"></div>
 	</span>
-	<span>Dark</span>
+  {
+    value && <span className='text-black'>Dark</span>
+  }
+	
 </label>
 {
   !user?
