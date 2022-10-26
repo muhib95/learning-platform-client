@@ -2,20 +2,37 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 const Register = () => {
-const {register}=useContext(UserContext);
+const {register,userUpdate}=useContext(UserContext);
 console.log(register);
 	const handleRegister=(event)=>{
 		event.preventDefault();
 		const form=event.target;
+		const name=form.fullname.value;
+		const photoUrl=form.photo.value;
 		const email=form.email.value;
 		const password=form.password.value;
 		register(email,password)
 		.then((result) => {
 			form.reset();
+			handleUserUpdate(name,photoUrl);
 		})
 		.catch((error) => {
 			form.reset();
 		
+		});
+
+	}
+
+	const handleUserUpdate=(name,photoUrl)=>{
+		const profile={
+			displayName:name,
+			photoURL:photoUrl
+		}
+		userUpdate(profile)
+		.then(() => {
+		
+		}).catch((error) => {
+			
 		});
 
 	}
