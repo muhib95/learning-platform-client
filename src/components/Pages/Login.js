@@ -34,6 +34,7 @@ const Login = () => {
 googleLogIn(provider)
 .then((result) => {
 	setError('Successfull login');
+	navigate(from, { replace: true });
 console.log(result);
 	// ...
 }).catch((error) => {
@@ -47,6 +48,7 @@ console.error(error);
 		gitHubLogin(gitProvider)
 		.then((result) => {
 			setError('Successfull login');
+			navigate(from, { replace: true });
 		
 		}).catch((error) => {
 			setError(error.message);
