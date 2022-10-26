@@ -2,7 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 const Header = () => {
-  const {user}=useContext(UserContext);
+  const {user,logOut}=useContext(UserContext);
+  const handleLogOut=()=>{
+    logOut()
+    .then(() => {
+     
+    }).catch((error) => {
+      
+    });
+  }
   console.log(user);
   return (
     <div className='bg-red-200'>
@@ -21,14 +29,25 @@ const Header = () => {
 	</span>
 	<span>Dark</span>
 </label>
-  <Link to="/register" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Register</Link>
+{
+  !user?
+  <>
+   <Link to="/register" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Register</Link>
   <Link to="/login" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Login</Link>
+  </>
+  :
+  <Link className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"><button onClick={handleLogOut}>LogOut</button></Link>
 
+}
  
-      <Link className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"></Link>
-  <Link className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"><button>LogOut</button></Link>
+ 
    
-    
+    {
+      user?.photoURL?
+      <img className='w-9 rounded-full' src={user?.photoURL} alt="" title={user?.displayName} />
+      :
+      <p>None</p>
+    }
   
   
 </nav>
