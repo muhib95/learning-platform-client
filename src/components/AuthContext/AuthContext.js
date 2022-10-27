@@ -7,6 +7,7 @@ const AuthContext = ({children}) => {
 const [user,setUser]=useState(null);
 const [loader,setLoader]=useState(true);
 const googleLogIn=(provider)=>{
+  setLoader(true);
   return signInWithPopup(auth,provider);
 }
 const logIn=(email, password)=>{
@@ -23,6 +24,7 @@ useEffect(()=>{
 
 },[])
 const logOut=()=>{
+  setLoader(true);
   return signOut(auth);
 }
 const register=( email, password)=>{
@@ -35,6 +37,7 @@ const userUpdate=(profile)=>{
 }
 
 const gitHubLogin=(provider)=>{
+  setLoader(true);
   return signInWithPopup(auth,provider);
 }
 
