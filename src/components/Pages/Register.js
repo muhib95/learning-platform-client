@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 const Register = () => {
 const {register,userUpdate}=useContext(UserContext);
-console.log(register);
+
 	const handleRegister=(event)=>{
 		event.preventDefault();
 		const form=event.target;

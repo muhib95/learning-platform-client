@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 const CatagoryDetails = () => {
   const {cid,title,details,photo}=useLoaderData();
-  console.log(cid);
+  
   return (
-    <div className='mt-4 mx-auto  w-5/12'>
+		<div>
+			<Pdf targetRef={ref} filename="catagory-details.pdf">
+		{({ toPdf }) => <button className='px-8 py-3 font-semibold rounded bg-gray-100 text-gray-800' onClick={toPdf}>Generate Pdf</button>}
+	</Pdf>
+	<div ref={ref}>
+		   <div className='mt-4 mx-auto  w-5/12'>
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100">
             <div className="flex space-x-4">
-		<button type="button" className="px-8 py-3 font-semibold rounded bg-gray-100 text-gray-800">PDF download</button>
+		
 	</div> 
 	
 	<div>
@@ -21,6 +28,10 @@ const CatagoryDetails = () => {
 	</div> 
 </div>
     </div>
+	</div>
+		</div>
+		
+ 
   );
 };
 

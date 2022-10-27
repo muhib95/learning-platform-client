@@ -7,7 +7,6 @@ import { Navigate, useLocation } from "react-router-dom";
 const PrivateRoute = ({children}) => {
 const {user,loader}=useContext(UserContext);
 const location = useLocation();
-console.log(user);
 if(loader){
   console.log('yes loading found');
   return <div>Loading...</div>

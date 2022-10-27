@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CatagoryList = ({name,id}) => {
-	console.log(id);
+	
   return (
     <div>
       <div className="h-full p-3 space-y-2 w-60 bg-gray-900 text-gray-100">

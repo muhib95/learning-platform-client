@@ -38,11 +38,11 @@ googleLogIn(provider)
 .then((result) => {
 	setError('Successfull login');
 	navigate(from, { replace: true });
-console.log(result);
+
 	// ...
 }).catch((error) => {
 	setError(error.message);
-console.error(error);
+
 });
 	}
 
