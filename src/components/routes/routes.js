@@ -13,6 +13,8 @@ import ModuleDetails from '../Pages/ModuleDetails';
 import Register from '../Pages/Register';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
+// All route here....
+
 export const router=createBrowserRouter([
   {
     path:'/',

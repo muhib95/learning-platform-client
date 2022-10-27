@@ -22,6 +22,7 @@ console.log(register);
 		});
 
 	}
+	// Full name and pic updateCurrentUser...
 
 	const handleUserUpdate=(name,photoUrl)=>{
 		const profile={

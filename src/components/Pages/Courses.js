@@ -11,6 +11,7 @@ const Courses = () => {
     .then(data=>setCatagories(data))
   },[])
   return (
+    // Courses page divide here two part
     <div className="flex flex-col md:flex md:flex-row container mx-auto mt-3">
     <div className='mr-8'>
      <h1 className='mb-1'>Catagorys: {catagories.length}</h1>

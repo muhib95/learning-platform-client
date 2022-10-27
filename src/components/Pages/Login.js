@@ -4,8 +4,11 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContext';
 const Login = () => {
+// Navigate hasPointerEvents..
+
 	const navigate = useNavigate();
   let location = useLocation();
+	// Location page link get here...
 	let from = location.state?.from?.pathname || "/";
 	const provider=new GoogleAuthProvider();
 	const gitProvider=new GithubAuthProvider();

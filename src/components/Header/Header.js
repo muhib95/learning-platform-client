@@ -5,6 +5,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import logo from '../../weblogo.jpg'
 const Header = () => {
   const [value,setValue]=useState(false);
+  // value by context
   const {user,logOut}=useContext(UserContext);
   const handleChange=(e)=>{
 const v=e.target.checked;
