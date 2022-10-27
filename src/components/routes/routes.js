@@ -26,29 +26,29 @@ export const router=createBrowserRouter([
       {
         path:'/courses',
         element:<Courses></Courses>,
-        loader:()=>fetch('http://localhost:5000/modules')
+        loader:()=>fetch('https://b610-lerning-platform-server-side-muhib95.vercel.app/modules')
       },
       {
         path:'/catagories/:id',
         element:<CatagoryDetails></CatagoryDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/catagories/${params.id}`)
+        loader:({params})=>fetch(`https://b610-lerning-platform-server-side-muhib95.vercel.app/catagories/${params.id}`)
       },
       {
         path:'/module/:id',
         element:<ModuleDetails></ModuleDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/modules/${params.id}`)
+        loader:({params})=>fetch(`https://b610-lerning-platform-server-side-muhib95.vercel.app/modules/${params.id}`)
 
       },
       {
         path:'/checkout/:id',
         element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`)
+        loader:({params})=>fetch(`https://b610-lerning-platform-server-side-muhib95.vercel.app/checkout/${params.id}`)
 
       },
       {
         path:'/checkout1/:id',
         element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/checkout1/${params.id}`)
+        loader:({params})=>fetch(`https://b610-lerning-platform-server-side-muhib95.vercel.app/checkout1/${params.id}`)
 
       },
       {

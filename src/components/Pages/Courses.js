@@ -6,7 +6,7 @@ const Courses = () => {
   const modules=useLoaderData();
   const [catagories,setCatagories]=useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/catagories')
+    fetch('https://b610-lerning-platform-server-side-muhib95.vercel.app/catagories')
     .then(res=>res.json())
     .then(data=>setCatagories(data))
   },[])
