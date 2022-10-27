@@ -21,7 +21,7 @@ setValue(v);
   console.log(user);
   return (
     <div className='bg-red-200'>
-      <nav className="flex flex-col md:flex md:flex-row justify-center space-x-4">
+      <nav className="flex flex-col md:flex md:flex-row justify-center space-x-4 p-6">
         <img className='h-20' src={logo} alt="" />
   <Link to="/" className="text-4xl font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Tutor Expart</Link>
   <Link to="/" className="font-bo px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</Link>
